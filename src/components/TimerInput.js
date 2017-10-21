@@ -13,35 +13,35 @@ class TimerInput extends Component {
 		const timerName = `${name}Length`;
 		return (
 			<div className="timer-wrapper">
-				<h3 className="timer-title">{toTitleCase(name)} Length</h3>
+				<h4 className="timer-title">{toTitleCase(name)} Length</h4>
 				<div className="controls-wrapper">
 					<div className="btn-group">
 						<button
-							className="ten-dec"
+							className="ten-dec dec"
 							onClick={() => changeHandler(timerName, 600, 'dec')}
 						>
-							--
+							-10
 						</button>
 						<button
-							className="one-dec"
+							className="one-dec dec"
 							onClick={() => changeHandler(timerName, 60, 'dec')}
 						>
-							-
+							-1
 						</button>
 					</div>
 					<div className="display">{toMins(secs)}</div>
 					<div className="btn-group">
 						<button
-							className="ten-inc"
+							className="ten-inc inc"
 							onClick={() => changeHandler(timerName, 600, 'inc')}
 						>
-							++
+							+10
 						</button>
 						<button
-							className="one-inc"
+							className="one-inc inc"
 							onClick={() => changeHandler(timerName, 60, 'inc')}
 						>
-							+
+							+1
 						</button>
 					</div>
 				</div>

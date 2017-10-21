@@ -22,7 +22,7 @@ class Timer extends Component {
 					min={0}
 					max={100}
 					mode="determinate"
-					size={100}
+					size={250}
 					thickness={5}
 					value={percent(totalTime - timeLeft, totalTime)}
 				/>

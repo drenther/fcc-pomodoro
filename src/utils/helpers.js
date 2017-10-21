@@ -16,7 +16,7 @@ export const fetchFromCache = () => {
 	if (localStorage) {
 		const slCache = getCache('sessionLength');
 		sessionLength = cacheIsValid(slCache) ? slCache : 1500;
-		const bCache = getCache('breakCache');
+		const bCache = getCache('breakLength');
 		breakLength = cacheIsValid(bCache) ? bCache : 300;
 	}
 	return {

@@ -52,7 +52,7 @@ class App extends Component {
 			session: false,
 			timeLeft: 0,
 			toast: true,
-			toastMsg: 'You have changed the intervals and reset the timer!',
+			toastMsg: 'Intervals reset!',
 		};
 		newState[timer] = newValue;
 		this.setState({ ...newState }, () => {
@@ -68,12 +68,12 @@ class App extends Component {
 				session: false,
 				timeLeft: 0,
 				toast: true,
-				toastMsg: 'You have reset the timer!',
+				toastMsg: 'Timer reset done!',
 			});
 		} else {
 			this.setState({
 				toast: true,
-				toastMsg: 'Pause the timer first to reset it!',
+				toastMsg: 'Pause timer for reset!',
 			});
 		}
 	};

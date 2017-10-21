@@ -1,14 +1,17 @@
-$primary: #241858
-$primary-dark: #11073B
-$primary-light: #5F5293
+$primary: #3e396b
+$background: #f8faff
 
-$secondary: #781424
-$secondary-dark: #50000D
-$secondary-light: #C96474
+$red: #FE6C5F
+$green: #2dde98
 
-$alternate: #106022
-$alternate-dark: #00400E
-$alternate-light: #50A162
+$border-radius: 5px
+
+$green-gradient: linear-gradient(284deg, #1cc7d0, #2dde98)
+$red-gradient: linear-gradient(256deg, #ffc168, #ff6c5f)
+$dark-gradient: linear-gradient(45deg, #3E396B 50%, #201C38 100%)
+
+$hover-shadow: 0 16px 32px 0 rgba(62,57,107,0.28), 0 0 0 transparent
+$normal-shadow: 0 10px 40px 0 rgba(62,57,107,0.07), 0 2px 9px 0 rgba(62,57,107,0.06)
 
 =flex($d, $j, $a)
 	display: flex
@@ -16,15 +19,146 @@ $alternate-light: #50A162
 	justify-content: $j
 	align-items: $a
 
+@font-face
+	font-family: Coats
+	src: url('./assets/Coats Regular.otf')
+
+@font-face
+	font-family: Coats
+	font-style: italic
+	src: url('./assets/Coats Regular Italic.otf')
+
 *
 	border: none
 	margin: 0
 	padding: 0
 	box-sizing: border-box
 
+// base styles
+
 html,
 body
 	width: 100%
 	height: 100%
 	+flex(row, center, center)
+	font-family: Coats, sans-serif
+	letter-spacing: 3px
 	color: $primary
+	font-weight: bold
+	background: $background
+
+// main styles
+#root,
+.app
+	width: 95%
+	height: 100%
+	+flex(column, center, center)
+
+header
+	width: 100%
+	+flex(row, center, center)
+	margin: 15px 0
+	h1
+		font-size: 32px
+
+main
+	width: 100%
+	+flex(column, flex-start, center)
+
+.inputs-wrapper
+	max-width: 600px
+	width: 100%
+	+flex(row, space-around, center)
+	@media screen and (max-width: 450px)
+		+flex(column, flex-start, center)
+	.timer-wrapper
+		width: 100%
+		+flex(column, flex-start, center)
+		margin: 2px
+		.timer-title
+			font-size: 18px
+		.controls-wrapper
+			width: 100%
+			height: 80px
+			padding: 5px
+			margin: 3px
+			+flex(row, space-around, center)
+			box-s
+			.display
+				width: 100%
+				font-size: 25px
+				+flex(row, center, center)
+			.btn-group
+				height: 100%
+				width: 100%
+				+flex(column, space-around, center)
+				button
+					font-size: 14px
+					height: 100%
+					width: 70%
+					color: $primary
+					margin: 2px
+					border-radius: $border-radius
+					cursor: pointer
+					box-shadow: $normal-shadow
+					transition: all 0.25s ease-in
+					&:hover
+						box-shadow: $hover-shadow
+				.dec
+					background: $red-gradient
+				.inc
+					background: $green-gradient
+		
+.buttons-wrapper
+	width: 100%
+	height: 50px
+	padding: 5px
+	margin: 5px
+	+flex(row, center, center)
+
+	button
+		width: 100px
+		height: 100%
+		margin: 10px
+		color: $primary
+		cursor: pointer
+		font-size: 18px
+		font-weight: 600
+		border-radius: $border-radius
+		box-shadow: $normal-shadow
+		transition: all 0.25s ease-in
+		&:hover
+			box-shadow: $hover-shadow
+	.btn-state
+		background: $dark-gradient
+		color: #fff
+
+.timer-wrapper
+	width: 250px
+	margin: 10px
+	+flex(row, center, center)
+	.timer
+		display: block
+		position: relative
+		width: 100%
+		.info
+			z-index: 2
+			position: absolute
+			+flex(column, center, center)
+			text-align: center
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+		&.session
+			color: $primary
+			svg circle
+				stroke: $primary !important
+		&.break
+			color: $red
+			svg circle
+				stroke: $red !important
+
+span
+	display: block !important
+	text-align: center !important
+	font-size: 12px !important
